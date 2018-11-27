@@ -53,44 +53,44 @@
             // 
             // UsuarionumericUpDown
             // 
-            this.UsuarionumericUpDown.Location = new System.Drawing.Point(94, 12);
+            this.UsuarionumericUpDown.Location = new System.Drawing.Point(100, 18);
             this.UsuarionumericUpDown.Name = "UsuarionumericUpDown";
             this.UsuarionumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.UsuarionumericUpDown.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 66);
+            this.textBox1.Location = new System.Drawing.Point(100, 70);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 159);
+            this.textBox2.Location = new System.Drawing.Point(100, 163);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 20);
+            this.textBox2.Size = new System.Drawing.Size(120, 20);
             this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(127, 98);
+            this.textBox3.Location = new System.Drawing.Point(100, 102);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(120, 20);
             this.textBox3.TabIndex = 3;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(127, 130);
+            this.textBox5.Location = new System.Drawing.Point(100, 134);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(120, 20);
             this.textBox5.TabIndex = 5;
             // 
             // UsuariosdateTimePicker
             // 
             this.UsuariosdateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.UsuariosdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.UsuariosdateTimePicker.Location = new System.Drawing.Point(270, 12);
+            this.UsuariosdateTimePicker.Location = new System.Drawing.Point(270, 17);
             this.UsuariosdateTimePicker.Name = "UsuariosdateTimePicker";
             this.UsuariosdateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.UsuariosdateTimePicker.TabIndex = 7;
@@ -99,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 13);
+            this.label1.Location = new System.Drawing.Point(44, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 8;
@@ -108,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 69);
+            this.label2.Location = new System.Drawing.Point(31, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 9;
@@ -117,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 98);
+            this.label3.Location = new System.Drawing.Point(26, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 10;
@@ -126,7 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 133);
+            this.label4.Location = new System.Drawing.Point(35, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 11;
@@ -135,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 162);
+            this.label5.Location = new System.Drawing.Point(26, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 12;
@@ -144,7 +144,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(227, 13);
+            this.label7.Location = new System.Drawing.Point(227, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 14;
@@ -225,7 +225,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.UsuarionumericUpDown);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistroUsuarios";
             this.Text = "Registro de usuarios";
             this.Load += new System.EventHandler(this.RegistroUsuarios_Load);

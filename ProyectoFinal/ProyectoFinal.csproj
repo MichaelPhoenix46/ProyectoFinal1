@@ -167,8 +167,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\Script\" />
     <Folder Include="UI\Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\Script\Scripts.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

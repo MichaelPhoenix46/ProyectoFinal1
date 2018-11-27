@@ -26,6 +26,8 @@ namespace ProyectoFinal.Entidades
             Cedula = string.Empty;
             Direccion = string.Empty;
             Telefono = string.Empty;
+            Sexo = string.Empty;
+            FechaRegistro = DateTime.Now;
 
         }
 

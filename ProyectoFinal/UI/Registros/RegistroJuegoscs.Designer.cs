@@ -248,6 +248,7 @@
             this.Buscarbutton.TabIndex = 47;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // RegistroJuegoscs
             // 
@@ -276,7 +277,7 @@
             this.Controls.Add(this.DescripciontextBox);
             this.Controls.Add(this.TitulotextBox);
             this.Controls.Add(this.VideoJuegoIdnumericUpDown);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistroJuegoscs";
             this.Text = "Registro de video juegos";
             ((System.ComponentModel.ISupportInitialize)(this.VideoJuegoIdnumericUpDown)).EndInit();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace ProyectoFinal
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void miembrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroMiembro r = new RegistroMiembro();
+            r.MdiParent = this;
+            r.Show();
         }
     }
 }

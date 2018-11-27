@@ -29,7 +29,7 @@ namespace ProyectoFinal.UI.Registros
             DirecciontextBox.Text = string.Empty;
             SexocomboBox.Text = string.Empty;
             TelefonotextBox.Text = string.Empty;
-
+            FechadateTimePicker.Value = DateTime.Now;
         }
 
         private bool ExiteEnLaBaseDeDatos()
@@ -45,8 +45,8 @@ namespace ProyectoFinal.UI.Registros
         {
             SexocomboBox.Items.Clear();
 
-            SexocomboBox.Items.Add("Hombre");
-            SexocomboBox.Items.Add("Mujer");
+            SexocomboBox.Items.Add("Masculino");
+            SexocomboBox.Items.Add("Femenino");
             
         }
 
@@ -57,6 +57,8 @@ namespace ProyectoFinal.UI.Registros
             SexocomboBox.Text = miembro.Sexo;
             TelefonotextBox.Text = miembro.Telefono;
             DirecciontextBox.Text = miembro.Direccion;
+            FechadateTimePicker.Value = miembro.FechaRegistro;
+            CedulatextBox.Text = miembro.Cedula;
 
         }
 
@@ -69,6 +71,8 @@ namespace ProyectoFinal.UI.Registros
             miembro.Sexo = SexocomboBox.Text;
             miembro.Telefono = TelefonotextBox.Text;
             miembro.Direccion = DirecciontextBox.Text;
+            miembro.FechaRegistro = FechadateTimePicker.Value;
+            miembro.Cedula = CedulatextBox.Text;
             return miembro;
         }
 
@@ -188,7 +192,7 @@ namespace ProyectoFinal.UI.Registros
 
             if (miembro != null)
             {
-                MessageBox.Show("Usuario Econtrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Usuario Encontrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LlenarCampos(miembro);
             }
             else

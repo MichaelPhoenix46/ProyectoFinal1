@@ -35,7 +35,7 @@ namespace ProyectoFinal.Entidades
             CantidadEjemplares = 0;
         }
 
-        public VideoJuego(int videoJuegoId, string titulo, string descripcion, string plataforma, DateTime lanzamiento, string genero,DateTime fechaRegistro,string desarrolladores,int cantidadEjemplares)
+        public VideoJuego(int videoJuegoId, string titulo, string descripcion, string plataforma, DateTime lanzamiento, string genero,DateTime fchaRegistro,string desarrolladores,int cantidadEjemplares)
         {
             VideoJuegoId = videoJuegoId;
             Titulo = titulo;
@@ -43,7 +43,7 @@ namespace ProyectoFinal.Entidades
             Plataforma = plataforma;
             Lanzamiento = lanzamiento;
             Genero = genero;
-            FechaRegistro = fechaRegistro;
+            FechaRegistro = fchaRegistro;
             Desarrolladores = desarrolladores;
             CantidadEjemplares = cantidadEjemplares;
         }

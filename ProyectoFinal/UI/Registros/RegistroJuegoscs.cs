@@ -59,46 +59,53 @@ namespace ProyectoFinal.UI.Registros
         {
             VideoJuego videoJuego = new VideoJuego();
             videoJuego.VideoJuegoId = Convert.ToInt32(VideoJuegoIdnumericUpDown.Value);
-            videoJuego.Nombre = NombretextBox.Text;
+            videoJuego.Titulo = TitulotextBox.Text;
             videoJuego.FechaRegistro = FechadateTimePicker.Value;
-            videoJuego.Sexo = SexocomboBox.Text;
-            videoJuego.Telefono = TelefonotextBox.Text;
-            videoJuego.Direccion = DirecciontextBox.Text;
-            return ;
+            videoJuego.Descripcion = DescripciontextBox.Text;
+            videoJuego.Genero = GenerotextBox.Text;
+            videoJuego.Desarrolladores = DesarrolladorestextBox.Text;
+            videoJuego.Lanzamiento = LanzamientodateTimePicker.Value;
+            videoJuego.Plataforma = PlataformatextBox.Text;
+            return videoJuego;
         }
 
         private bool Validar()
         {
 
             bool paso = true;
-            if (string.IsNullOrWhiteSpace(NombretextBox.Text) || string.IsNullOrWhiteSpace(NombretextBox.Text))
+            if (string.IsNullOrWhiteSpace(TitulotextBox.Text) || string.IsNullOrWhiteSpace(TitulotextBox.Text))
             {
-                videoJuegoserrorProvider.SetError(NombretextBox, "Campo Vacio ");
+                videoJuegoserrorProvider.SetError(TitulotextBox, "Campo Vacio ");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(CedulatextBox.Text) || string.IsNullOrWhiteSpace(CedulatextBox.Text))
+            if (string.IsNullOrWhiteSpace(DesarrolladorestextBox.Text) || string.IsNullOrWhiteSpace(DesarrolladorestextBox.Text))
             {
-                videoJuegoserrorProvider.SetError(CedulatextBox, "Campo Vacio ");
+                videoJuegoserrorProvider.SetError(DesarrolladorestextBox, "Campo Vacio ");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(DirecciontextBox.Text) || string.IsNullOrWhiteSpace(CedulatextBox.Text))
+            if (string.IsNullOrWhiteSpace(DescripciontextBox.Text) || string.IsNullOrWhiteSpace(DescripciontextBox.Text))
             {
-                videoJuegoserrorProvider.SetError(DirecciontextBox, "Campo Vacio");
+                videoJuegoserrorProvider.SetError(DescripciontextBox, "Campo Vacio");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(SexocomboBox.Text) || string.IsNullOrWhiteSpace(SexocomboBox.Text))
+            if (string.IsNullOrWhiteSpace(PlataformatextBox.Text) || string.IsNullOrWhiteSpace(PlataformatextBox.Text))
             {
-                videoJuegoserrorProvider.SetError(SexocomboBox, "Campo Vacio");
+                videoJuegoserrorProvider.SetError(PlataformatextBox, "Campo Vacio");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(TelefonotextBox.Text) || string.IsNullOrWhiteSpace(TelefonotextBox.Text))
+            if (string.IsNullOrWhiteSpace(GenerotextBox.Text) || string.IsNullOrWhiteSpace(GenerotextBox.Text))
             {
-                videoJuegoserrorProvider.SetError(TelefonotextBox, "Campo Vacio");
+                videoJuegoserrorProvider.SetError(GenerotextBox, "Campo Vacio");
                 paso = false;
             }
-            if (NombretextBox.Text.Contains("!") || NombretextBox.Text.Contains("#") || NombretextBox.Text.Contains("$") || NombretextBox.Text.Contains("%") || NombretextBox.Text.Contains("&") || NombretextBox.Text.Contains("/") || NombretextBox.Text.Contains("("))
+            if (EjemplaresnumericUpDown.Value == 0)
             {
-                videoJuegoserrorProvider.SetError(TelefonotextBox, "Campo Vacio");
+                videoJuegoserrorProvider.SetError(EjemplaresnumericUpDown, "Campo Vacio");
+                paso = false;
+            }
+            if (TitulotextBox.Text.Contains("!") || TitulotextBox.Text.Contains("#") || TitulotextBox.Text.Contains("$") || TitulotextBox.Text.Contains("%") || TitulotextBox.Text.Contains("&") || TitulotextBox.Text.Contains("/") || TitulotextBox.Text.Contains("("))
+            {
+                videoJuegoserrorProvider.SetError(TitulotextBox, "Campo Vacio");
                 paso = false;
             }
 
@@ -108,17 +115,83 @@ namespace ProyectoFinal.UI.Registros
 
         private void nuevobutton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<VideoJuego> repositorio = new RepositorioBase<VideoJuego>();
+            bool paso = false;
+            VideoJuego videoJuego;
+            if (!Validar())
+                return;
+            videoJuego = new VideoJuego();
+            videoJuego = LlenaClase();
+            if (VideoJuegoIdnumericUpDown.Value == 0)
+            {
 
+                paso = repositorio.Guardar(videoJuego);
+            }
+            else
+            {
+                if (!ExiteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No Se Puede Modificar No Exite", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                paso = repositorio.Modificar(videoJuego);
+            }
+            if (paso)
+            {
+                MessageBox.Show("Guardado con Exito", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("No Se Puede Guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<VideoJuego> repositorio = new RepositorioBase<VideoJuego>();
+            int id;
+            int.TryParse(VideoJuegoIdnumericUpDown.Text, out id);
+            if (!ExiteEnLaBaseDeDatos())
+            {
+                videoJuegoserrorProvider.SetError(VideoJuegoIdnumericUpDown, "Este Usuario No Exite");
+                VideoJuegoIdnumericUpDown.Focus();
+                return;
+            }
+            if (repositorio.Eliminar(id))
+            {
+                MessageBox.Show("Usuario Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+            else
+                MessageBox.Show("No se Pudo Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            RepositorioBase<VideoJuego> repositorio = new RepositorioBase<VideoJuego>();
+            int id;
+            VideoJuego videoJuego = new VideoJuego();
+
+            int.TryParse(VideoJuegoIdnumericUpDown.Text, out id);
+            videoJuego = repositorio.Buscar(id);
+
+            if (videoJuego != null)
+            {
+                MessageBox.Show("Usuario Encontrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LlenarCampos(videoJuego);
+            }
+            else
+            {
+                MessageBox.Show("Usuario no Exite", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
+    
 }
